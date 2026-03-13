@@ -1,62 +1,41 @@
 # reachy_follow
 
-Assistive interaction software for the **Reachy Mini** robot mounted on a **Gitamini** mobile platform, developed as part of the **SOAR project at the Stanford Robotics Center (SRC)**.
+Assistive interaction software for the **Reachy Mini** robot mounted on a **Gitamini** platform.  
+Developed as part of the **SOAR project at the Stanford Robotics Center (SRC)**.
 
-The system enables intuitive interaction between older adults and the robot using **vision-based gesture recognition** powered by **MediaPipe Pose Landmarker**.
-
----
-
-## Overview
-
-The software allows users to interact with Reachy through body gestures and simple visual cues. The robot can operate in two interaction modes: **Leading** and **Following**, designed for guided navigation and conversational interaction.
-
-Additional safety features include **fall detection** and **person lost detection**, which remain active in both modes.
-
----
+Uses **MediaPipe Pose Landmarker** to recognize gestures and enable simple human–robot interaction for older adults.
 
 ## Setup
 
-1. Download and install the **Reachy Mini application**.
-2. Connect the **Reachy Mini robot to your computer using a USB-C cable**.
-3. Run the main interaction script.
+1. Install the **Reachy Mini app**
+2. Connect Reachy Mini via **USB-C**
+3. Run the desired script
 
----
+## Scripts
 
-## Interaction Modes
+**gesture_simple.py**
+- Left / right hand gesture recognition  
+- Fall detection
 
-### Mode 1: Leading
+**gesture_modes.py**
+- Full interaction system with two modes:
+  - **Leading**
+    - Reachy faces the user
+    - Gitamini moves forward
+    - Reachy tracks the user’s head
+    - Hand gestures move the antenna
+  - **Following**
+    - User walks backwards facing Reachy
+    - Reachy follows the user
+    - User can stop and interact with Reachy
 
-- Reachy faces the user while the **Gitamini platform moves forward**.
-- The robot maintains eye contact by **tracking the user’s head position**.
-- The user can control the robot’s antenna using **left or right hand gestures**.
+Fall detection and person-lost detection run in both modes.
 
-### Mode 2: Following
+## Notes
 
-- The user acts as a **tour guide**, walking backwards while facing Reachy.
-- Reachy follows the user during movement.
-- The user can **pause and interact with Reachy** (e.g., ask questions such as the time).
+The system prioritizes direct interaction and may have small perception latency.
 
----
-
-## Safety Features
-
-Active in both modes:
-
-- **Fall detection**
-- **Person lost detection**
-
-These mechanisms ensure that the system reacts appropriately if the user falls or leaves the robot’s field of view.
-
----
-
-## Future Improvements
-
-Potential next steps include:
-
-- Integrating **Leading and Following modes into a unified interaction framework**
-- Adding **direct gesture control of the Gitamini platform**
-- Reducing latency using alternative perception models such as:
-  - **YOLO-based detectors**
-  - **Hugging Face vision models**
-
-The current implementation prioritizes **robust human–robot interaction**, allowing moderate perception latency while maintaining reliable gesture recognition.
+Future work could include:
+- Integrating both modes into a single adaptive behavior
+- Direct gesture control of the Gitamini platform
+- Faster perception models (YOLO, HuggingFace vision models)
