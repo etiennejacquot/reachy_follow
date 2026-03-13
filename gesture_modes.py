@@ -19,8 +19,8 @@ class MockReachyMini:
     """Simulates ReachyMini for development without real robot"""
 
     def __init__(self):
-        print("🤖 [MOCK] Connecting to Reachy Mini...")
-        print("🤖 [MOCK] Connection successful (simulated)")
+        print("[MOCK] Connecting to Reachy Mini...")
+        print("[MOCK] Connection successful (simulated)")
 
     def goto_target(self, head=None, antennas=None, body_yaw=None, duration=1.0):
         print(f"⚙ [MOCK] goto_target: head={head}, antennas={antennas}, body_yaw={body_yaw}, duration={duration}s")
@@ -29,7 +29,7 @@ class MockReachyMini:
         print(f"⚙ [MOCK] set_target: head={head}, antennas={antennas}, body_yaw={body_yaw}")
 
     def disconnect(self):
-        print("🤖 [MOCK] Disconnecting from Reachy Mini...")
+        print("[MOCK] Disconnecting from Reachy Mini...")
 
     def __enter__(self):
         return self
